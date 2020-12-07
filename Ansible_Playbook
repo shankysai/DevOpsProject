@@ -8,7 +8,7 @@
        name: docker
        state: present
      tags:
-         - oel1 
+         - oel 
 
    - name: Start Docker
      when: inventory_hostname in groups['oel']
