@@ -24,5 +24,5 @@
        name: podman
        state: present
      tags:
-        - cento1s
+        - centos
     
