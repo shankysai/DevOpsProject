@@ -11,5 +11,5 @@ export let options = {
 
 export default function () {
   http.get('http://test.k6.io/my_messages.php');
-  sleep(3);
+  sleep(2);
 }
