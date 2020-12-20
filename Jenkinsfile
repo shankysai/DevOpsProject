@@ -1,15 +1,16 @@
-import {sleep} from 'k6';
-import http from 'k6/http';
+pipeline {
+    agent any
 
-export let options = {
-  duration: '30s',
-  vus: 50,
-  thresholds: {
-    http_req_duration: ['p(95)<500'], // 95 percent of response times must be below 500ms
-  },
-};
-
-export default function () {
-  http.get('http://test.k6.io/contacts.php');
-  sleep(3);
+    environment {
+        K6_API_TOKEN=credentials("k6_api_token")
+            }
+    stages {
+        stage('Performance Testing') {
+            steps {
+                sh 'k6 login cloud --token ${k6_api_token}'
+                sh 'k6 DevOpsProject/k6-test.js'
+                echo 'Completed Running K6 performance tests!'
+            }
+        }
+    }
 }
