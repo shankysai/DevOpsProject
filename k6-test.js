@@ -10,6 +10,6 @@ export let options = {
 };
 
 export default function () {
-  http.get('http://test.k6.io/contacts.php');
+  http.get('http://test.k6.io/my_messages.php');
   sleep(3);
 }
