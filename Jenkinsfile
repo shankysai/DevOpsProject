@@ -8,7 +8,7 @@ pipeline {
         stage('Performance Testing') {
             steps {
                 sh 'k6 login cloud --token ${K6_API_TOKEN}'
-                sh 'k6 run DevOpsProject/k6-test.js'
+                sh 'k6 run k6-test.js'
                 echo 'Completed Running K6 performance tests!'
             }
         }
